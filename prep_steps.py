@@ -87,7 +87,7 @@ def fingerprint_outlier_detector(res_dir, res_dim, outlier_model_path, data_exis
 
     # create the classifier
     logging.info("[STATUS] Creating the classifier..")
-    clf = LocalOutlierFactor(n_neighbors=30, novelty=True, contamination=0.00001)
+    clf = LocalOutlierFactor(n_neighbors=30, novelty=True, contamination=0.0001)
     # fit the training data and labels
     logging.info("[STATUS] Fitting data/label to model..")
     clf.fit(train_feat)
@@ -99,17 +99,17 @@ def prep_pipeline(args):
     # NoiseScope step 1: noise residual extractor.
     # This step can be skipped if you already have noise residuals ready.
     # Convert all real images into noise residuals, and save them in real_res_dir.
-    # save_residual(args.real_img_dir, args.real_res_dir)
+    save_residual(args.real_img_dir, args.real_res_dir)
     # Convert all fake images into noise residuals, and save them in fake_res_dir.
-    # save_residual(args.fake_img_dir, args.fake_res_dir)
+    save_residual(args.fake_img_dir, args.fake_res_dir)
     # Convert all reference images into noise residuals, and save them in refer_res_dir.
-    # save_residual(args.refer_img_dir, args.refer_res_dir)
+    save_residual(args.refer_img_dir, args.refer_res_dir)
     # This step can be skipped if you already have noise residuals ready.
 
     # calibrate T_merge threshold with the help of reference set. T_merge will be used in NoiseScope step 2
     correlation_between_real_fps(args.refer_res_dir, args.img_dim)
     # train a fingerprint outlier detector with the help of reference set. Outlier detector will be used in NoiseScope step 3.
-    # fingerprint_outlier_detector(args.refer_res_dir, args.img_dim, args.fingerprint_classifier_path)
+    fingerprint_outlier_detector(args.refer_res_dir, args.img_dim, args.fingerprint_classifier_path)
 
 
 if __name__ == '__main__':
