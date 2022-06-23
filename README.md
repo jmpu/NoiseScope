@@ -13,7 +13,7 @@ To run on those datasets, pretrained fingerprint classifiers are [here](https://
 The code is based on Python 3 and Matlab. We borrow the [Camera Fingerprint - Matlab implementation](http://dde.binghamton.edu/download/camera_fingerprint/) to extract noise residuals.
 
 1. Install the dependencies as below:
-- First find your matlab installation folder, and install the matlab engine for python with: `python -u setup.py install`. Then install requests library with `pip install requests`, then do `pip install -r requirements.txt`.
+- First find your matlab installation folder, and install the matlab engine ([details](https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html)) for python with: `python -u setup.py install`. Then install requests library with `pip install requests`, then do `pip install -r requirements.txt`.
 
 2. Compilation: 
 
