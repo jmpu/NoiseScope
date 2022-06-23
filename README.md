@@ -26,7 +26,7 @@ The code is based on Python 3 and Matlab. We borrow the [Camera Fingerprint - Ma
 
  - **First --- Data preparation.** you need to prepare three data folders: real folder containing real images, reference folder containing real images, fake folder with fake images from GANs you want to detect. Images in real folder and reference folder usually share the same data distribution and the same type of image content. Ideally, we recommend to collect no less than 1000 real images as reference data.
 
-  - **Second --- Data preprocessing and parameter calibration.** Use `data_prep.py` to: 1) Extract noise residual for above images (used in NoiseScope Step 1), 2) Calibrate the merging threshold T_merge which will be used in NoiseScope Step 2, 3) Train a fingerprint classifier which will be used in NoiseScope Step 3. If you use noise residuals in the datasets released by us, you can skip the first step of noise residual extraction in `data_prep.py`.
+  - **Second --- Data preprocessing and parameter calibration.** Use `prep_steps.py` to: 1) Extract noise residual for above images (used in NoiseScope Step 1), 2) Calibrate the merging threshold T_merge which will be used in NoiseScope Step 2, 3) Train a fingerprint classifier which will be used in NoiseScope Step 3. If you use noise residuals in the datasets released by us, you can skip the first step of noise residual extraction in `prep_steps.py`.
 
 ```python
 python prep_steps.py 
